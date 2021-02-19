@@ -14,6 +14,14 @@
     <string name="submit">확인</string>
     <string name="network_not_working">네크워크에 연결되어 있지 않습니다.\n확인후 다시 실행해주세요.</string>
 
+    <!--  검색어 화면  -->
+    <string name="dream_word">꿈에 무엇이 나왔나요?</string>
+
+    <string name="favorite_dream">자주찾는 꿈해몽</string>
+    <string name="favorite_month">이달의 꿈해몽</string>
+
+    <string name="detail_title">상세보기</string>
+    <string name="list_title">리스트보기</string>
     <!-- 왼쪽 메뉴 -->
     <string name="nav_list">맛집리스트</string>
     <string name="nav_map">지도리스트</string>
@@ -105,4 +113,17 @@
 
     <!-- 즐겨찾기 -->
     <string name="no_keep">즐겨찾기에 등록된 음식점이 없습니다.</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_list">ListActivity</string>
 </resources>

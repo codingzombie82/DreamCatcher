@@ -23,5 +23,8 @@
     <dimen name="text_size_large2">22sp</dimen>
 
     <dimen name="cardview_round_basic">4dp</dimen>
-
+    <!---->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="item_margin">8dp</dimen>
+    <dimen name="column_width">80dp</dimen>
 </resources>
