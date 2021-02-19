@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 import com.changzakso.dreamcatcher.adapter.MonthListAdapter;
 import com.changzakso.dreamcatcher.adapter.SearchWordAdapter;
@@ -16,11 +18,25 @@ public class MainActivity extends AppCompatActivity {
 
     SearchWordAdapter gridAdapter;
     MonthListAdapter listAdapter;
+    EditText etWord;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        etWord = findViewById(R.id.etWord);
+        findViewById(R.id.btSearch).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(etWord.getText().length() > 0){
+                    Intent i = new Intent(MainActivity.this, ListActivity.class);
+                    String word = etWord.getText().toString();
+                    i.putExtra(Intent.EXTRA_TEXT, word);
+                    startActivity(i);
+                }else{
+                    CzToast.s(MainActivity.this, "검색어를 입력하세요");
+                }
+            }
+        });
 
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -29,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSearchWord(String title) {
                 Intent i = new Intent(MainActivity.this, ListActivity.class);
+                i.putExtra(Intent.EXTRA_TEXT, title);
                 startActivity(i);
             }
         });
@@ -48,5 +65,9 @@ public class MainActivity extends AppCompatActivity {
         customList.setAdapter(listAdapter);
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        etWord.setText("");
+    }
 }

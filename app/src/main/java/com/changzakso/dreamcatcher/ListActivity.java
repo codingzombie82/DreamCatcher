@@ -14,28 +14,51 @@ import com.changzakso.dreamcatcher.utils.CzToast;
 
 public class ListActivity extends AppCompatActivity {
     MonthListAdapter listAdapter;
+    String searchWord;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        Toolbar toolbar = findViewById(R.id.toolbar);
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(R.string.list_title);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Bundle extras = getIntent().getExtras();
 
-        RecyclerView customList = (RecyclerView) findViewById(R.id.cMainListView);
-        customList.setHasFixedSize(true);
-        listAdapter = new MonthListAdapter(new MonthListAdapter.WordSelectListener() {
-            @Override
-            public void onSearchWord(String title) {
-                CzToast.l(ListActivity.this, title);
-                Intent i = new Intent(ListActivity.this, DetailActivity.class);
-                startActivity(i);
+        if(extras != null){
+            searchWord = extras.getString(Intent.EXTRA_TEXT);
+
+            if(searchWord != null){
+                Toolbar toolbar = findViewById(R.id.toolbar);
+
+                setSupportActionBar(toolbar);
+                getSupportActionBar().setTitle(searchWord);
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+                RecyclerView customList = (RecyclerView) findViewById(R.id.cMainListView);
+                customList.setHasFixedSize(true);
+                listAdapter = new MonthListAdapter(new MonthListAdapter.WordSelectListener() {
+                    @Override
+                    public void onSearchWord(String title) {
+                        CzToast.l(ListActivity.this, title);
+                        Intent i = new Intent(ListActivity.this, DetailActivity.class);
+                        startActivity(i);
+                    }
+                });
+                customList.setAdapter(listAdapter);
+            }else{
+                onBackPressed();
             }
-        });
-        customList.setAdapter(listAdapter);
+        }else{
+            onBackPressed();
+        }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(searchWord == null || searchWord.length() <= 0){
+            onBackPressed();
+        }
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
