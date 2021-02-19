@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "34198252905",
+    "project_id": "dreamcatcher-ff71c",
+    "storage_bucket": "dreamcatcher-ff71c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34198252905:android:f6f4a7c8b46f140d5ce1f8",
+        "android_client_info": {
+          "package_name": "com.changzakso.dreamcatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34198252905-kdmjteeiaf6h9qsidqobuc6b42rlqbkp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFADR--LMtBl7fSE84NW4du1T_kfGefTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34198252905-kdmjteeiaf6h9qsidqobuc6b42rlqbkp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
